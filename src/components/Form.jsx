@@ -14,7 +14,7 @@ const Form = () => {
   const changeInput = async (e) => {
     const images = $(".images");
     const selected = e.target.files[0];
-    const allowedTypes = ["image/png", "image/jpg", "image/jpeg"];
+    const allowedTypes = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
     if (selected && allowedTypes.includes(selected.type)) {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -30,12 +30,12 @@ const Form = () => {
       };
       console.log(inputRef.current.files[0]);
       if (inputRef.current.files[0]) {
-        alert("file uploaded");
+        alert("File uploaded");
         reader.readAsDataURL(inputRef.current.files[0]);
       }
     } else {
       setError(true);
-      alert("Upload Error");
+      alert("The file uploaded is not an image file.");
     }
   };
 
